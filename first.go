@@ -6,9 +6,8 @@ import (
 
 func main() {
 	textTest()
-	const mess = "uv vagreangvbany fcnpr fgngvba"
-	rot13Decoder(mess)
-	convertor()
+	a, b, c := funcTest(127, 127, 127)
+	fmt.Println(a, b, c)
 }
 
 func textTest() {
@@ -20,19 +19,6 @@ func textTest() {
 	fmt.Println("\n")
 }
 
-func rot13Decoder(mess string) {
-	for i := 0; i < len(mess); i++ {
-		var letter = mess[i] + 13
-		if letter > 'z' {
-			letter = letter - 26
-		}
-		fmt.Printf("%c", letter)
-	}
-}
-
-func convertor() {
-	var a = 10
-	var b = float64(a)
-	fmt.Println("\n")
-	fmt.Println(b)
+func funcTest(firstParameter int8, secondParameter int16, thirdParameter int32) (int8, int16, int32) {
+	return firstParameter * 2, secondParameter * 2, thirdParameter * 2
 }
