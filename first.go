@@ -4,21 +4,21 @@ import (
 	"fmt"
 )
 
+type celsius float64
+type kelvin float64
+type fahrenheit float64
+
 func main() {
-	textTest()
-	a, b, c := funcTest(127, 127, 127)
-	fmt.Println(a, b, c)
+	var c celsius = 100
+	var k kelvin = 500
+	var f fahrenheit = 200
+	var temp = c + k.celsius() + f.celsius()
+	fmt.Println(temp)
 }
 
-func textTest() {
-	var a = "text1\ntext2"
-	var b = `text1\ntext2`
-	var c rune = 960
-	var d = '*'
-	fmt.Printf("%v\n%v\n%c\n%[4]T\n%c\n", a, b, c, d, b[1])
-	fmt.Println("\n")
+func (k kelvin) celsius() celsius {
+	return celsius(k - 237)
 }
-
-func funcTest(firstParameter int8, secondParameter int16, thirdParameter int32) (int8, int16, int32) {
-	return firstParameter * 2, secondParameter * 2, thirdParameter * 2
+func (f fahrenheit) celsius() celsius {
+	return celsius((f - 32.0) * 5.0 / 9.0)
 }
